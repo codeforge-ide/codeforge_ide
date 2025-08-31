@@ -1,16 +1,57 @@
+/**
+ * IDE Layout Styles
+ * Main layout component using CSS custom properties for theming
+ */
+
 .ide-layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: #1e1e1e;
-  color: #cccccc;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-fg-primary);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
 }
 
 .ide-body {
   display: flex;
   flex: 1;
   overflow: hidden;
+  background-color: var(--color-bg-primary);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .ide-layout {
+    font-size: var(--font-size-xs);
+  }
+
+  .ide-body {
+    flex-direction: column;
+  }
+}
+
+/* Theme-specific adjustments */
+.theme-pitch-dark .ide-layout {
+  /* Pure black background for pitch dark */
+  background-color: #000000;
+}
+
+.theme-pitch-dark .ide-body {
+  background-color: #000000;
+}
+
+.theme-high-contrast .ide-layout {
+  border: 2px solid var(--color-border-primary);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .ide-layout * {
+    transition: none !important;
+    animation: none !important;
+  }
 }

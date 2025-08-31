@@ -10,8 +10,11 @@
  */
 
 // Main components
-export { CommandProvider, default as CommandProviderDefault } from './CommandProvider';
-export { default as CommandPalette } from './CommandPalette';
+export {
+  CommandProvider,
+  default as CommandProviderDefault,
+} from "./CommandProvider";
+export { default as CommandPalette } from "./CommandPalette";
 
 // Hooks
 export {
@@ -19,11 +22,11 @@ export {
   useCommandPalette,
   useCommandExecution,
   useKeyboardShortcuts,
-} from './CommandProvider';
+} from "./CommandProvider";
 
 // Core services
-export { commandRegistry } from './CommandRegistry';
-export { keyboardManager } from './KeyboardManager';
+export { commandRegistry } from "./CommandRegistry";
+export { keyboardManager } from "./KeyboardManager";
 
 // Built-in commands
 export {
@@ -31,7 +34,7 @@ export {
   getBuiltInCommandsByCategory,
   getThemeCommands,
   initializeBuiltInCommands,
-} from './builtInCommands';
+} from "./builtInCommands";
 
 // Types and interfaces
 export type {
@@ -50,12 +53,11 @@ export type {
   KeyModifier,
   QuickPickItem,
   QuickPickOptions,
-  ThemeContribution,
   BuiltInCommandId,
-} from './types';
+} from "./types";
 
-export { BUILT_IN_COMMANDS } from './types';
+export { BUILT_IN_COMMANDS } from "./types";
 
 // Re-export history implementation
-export { CommandHistoryImpl } from './CommandRegistry';
-export type { KeyBinding } from './KeyboardManager';
+export { CommandHistoryImpl } from "./CommandRegistry";
+export type { KeyBinding } from "./KeyboardManager";

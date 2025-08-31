@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![CodeForge Logo](public/tauri.svg)
-
 **A next-generation code editor built for modern developers**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

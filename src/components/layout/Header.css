@@ -1,77 +1,222 @@
+/**
+ * Header Styles
+ * IDE header component using CSS custom properties for theming
+ */
+
 .ide-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 32px;
-  background-color: #2d2d30;
-  border-bottom: 1px solid #383838;
-  padding: 0 8px;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-secondary);
+  padding: 0 var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-primary);
   user-select: none;
+  -webkit-app-region: drag;
+  flex-shrink: 0;
 }
 
 .header-left {
   display: flex;
   align-items: center;
+  gap: var(--spacing-3);
+  -webkit-app-region: no-drag;
 }
 
 .app-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #cccccc;
-  margin-left: 8px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-primary);
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 .header-center {
   flex: 1;
   display: flex;
   justify-content: center;
+  -webkit-app-region: no-drag;
 }
 
 .menu-bar {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  gap: var(--spacing-1);
 }
 
 .menu-item {
-  padding: 4px 8px;
-  font-size: 13px;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
-  border-radius: 3px;
-  transition: background-color 0.2s;
+  color: var(--color-fg-secondary);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-duration-fast) var(--transition-easing-ease);
+  position: relative;
 }
 
 .menu-item:hover {
-  background-color: #383838;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-fg-primary);
+}
+
+.menu-item:active {
+  background-color: var(--color-interactive-secondary);
+}
+
+.menu-item.active {
+  background-color: var(--color-interactive-secondary);
+  color: var(--color-fg-primary);
 }
 
 .header-right {
   display: flex;
   align-items: center;
+  gap: var(--spacing-2);
+  -webkit-app-region: no-drag;
 }
 
 .window-controls {
   display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
 }
 
 .control-btn {
-  width: 32px;
-  height: 32px;
-  background: none;
+  width: 24px;
+  height: 24px;
   border: none;
-  color: #cccccc;
+  background: none;
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  transition: background-color 0.2s;
+  color: var(--color-fg-tertiary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+  transition: all var(--transition-duration-fast) var(--transition-easing-ease);
 }
 
 .control-btn:hover {
-  background-color: #383838;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-fg-primary);
+}
+
+.control-btn.minimize:hover {
+  background-color: var(--color-status-warning);
+  color: var(--color-fg-inverse);
+}
+
+.control-btn.maximize:hover {
+  background-color: var(--color-status-success);
+  color: var(--color-fg-inverse);
 }
 
 .control-btn.close:hover {
-  background-color: #e74c3c;
-  color: white;
+  background-color: var(--color-status-error);
+  color: var(--color-fg-inverse);
+}
+
+/* macOS specific styles */
+@media screen and (-webkit-min-device-pixel-ratio: 1) and (max-device-width: 1920px) {
+  .ide-header {
+    padding-left: 80px; /* Space for traffic lights on macOS */
+  }
+
+  .window-controls {
+    display: none; /* Hide custom controls on macOS */
+  }
+}
+
+/* Linux/Windows specific styles */
+.ide-header[data-platform="win32"] .header-left,
+.ide-header[data-platform="linux"] .header-left {
+  padding-left: 0;
+}
+
+/* Theme-specific adjustments */
+.theme-pitch-dark .ide-header {
+  background-color: #000000;
+  border-bottom-color: #111111;
+}
+
+.theme-high-contrast .ide-header {
+  border-bottom-width: 2px;
+}
+
+.theme-high-contrast .menu-item:hover,
+.theme-high-contrast .control-btn:hover {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ide-header {
+    height: 28px;
+    padding: 0 var(--spacing-2);
+  }
+
+  .app-title {
+    font-size: var(--font-size-xs);
+  }
+
+  .menu-bar {
+    display: none; /* Hide menu on mobile */
+  }
+
+  .control-btn {
+    width: 20px;
+    height: 20px;
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Focus states for accessibility */
+.menu-item:focus,
+.control-btn:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Animation for smooth interactions */
+.menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-interactive-accent);
+  transition: all var(--transition-duration-fast) var(--transition-easing-ease);
+  transform: translateX(-50%);
+}
+
+.menu-item:hover::after,
+.menu-item.active::after {
+  width: 80%;
+}
+
+/* Prevent text selection on header elements */
+.ide-header,
+.ide-header * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .menu-item,
+  .control-btn {
+    border: 1px solid transparent;
+  }
+
+  .menu-item:hover,
+  .control-btn:hover {
+    border-color: var(--color-border-primary);
+  }
 }
