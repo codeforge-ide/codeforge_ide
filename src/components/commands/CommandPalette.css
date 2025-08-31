@@ -1,0 +1,397 @@
+/**
+ * Command Palette Styles
+ * Professional, dark-themed command palette with smooth animations
+ */
+
+.command-palette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.command-palette {
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 600px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInDown 0.2s ease-out;
+}
+
+/* Search Section */
+.command-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-4);
+  border-bottom: 1px solid var(--color-border-secondary);
+  background-color: var(--color-bg-secondary);
+}
+
+.search-icon {
+  color: var(--color-fg-tertiary);
+  margin-right: var(--spacing-3);
+  font-size: var(--font-size-base);
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-fg-primary);
+  font-size: var(--font-size-lg);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  padding: var(--spacing-2) 0;
+}
+
+.search-input::placeholder {
+  color: var(--color-fg-tertiary);
+}
+
+.search-loading {
+  display: flex;
+  align-items: center;
+  margin-left: var(--spacing-3);
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-border-secondary);
+  border-top: 2px solid var(--color-interactive-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Results Section */
+.command-results {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.command-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-2) 0;
+}
+
+/* Command Items */
+.command-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  cursor: pointer;
+  transition: background-color var(--transition-duration-fast) var(--transition-easing-ease);
+  border-left: 3px solid transparent;
+}
+
+.command-item:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.command-item.selected {
+  background-color: var(--color-interactive-secondary);
+  border-left-color: var(--color-interactive-accent);
+}
+
+.command-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-secondary);
+  flex-shrink: 0;
+}
+
+.command-content {
+  flex: 1;
+  min-width: 0;
+  margin-right: var(--spacing-3);
+}
+
+.command-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-primary);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.command-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-tertiary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.command-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-1);
+  flex-shrink: 0;
+}
+
+.command-category {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  opacity: 0.8;
+}
+
+.command-keybinding {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-mono);
+  color: var(--color-fg-tertiary);
+  background-color: var(--color-bg-tertiary);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border-secondary);
+  white-space: nowrap;
+}
+
+/* No Results */
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-12) var(--spacing-6);
+  text-align: center;
+}
+
+.no-results-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-4);
+  opacity: 0.5;
+}
+
+.no-results-text {
+  font-size: var(--font-size-lg);
+  color: var(--color-fg-primary);
+  margin-bottom: var(--spacing-2);
+  font-weight: var(--font-weight-medium);
+}
+
+.no-results-hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-tertiary);
+}
+
+/* Help Section */
+.command-help {
+  padding: var(--spacing-6) var(--spacing-4);
+  text-align: center;
+}
+
+.help-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-primary);
+  margin-bottom: var(--spacing-4);
+}
+
+.help-shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.help-shortcut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-secondary);
+}
+
+.help-key {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-interactive-accent);
+  background-color: var(--color-bg-primary);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border-primary);
+}
+
+.help-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-secondary);
+}
+
+/* Footer */
+.command-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-top: 1px solid var(--color-border-secondary);
+  background-color: var(--color-bg-secondary);
+}
+
+.footer-navigation {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.footer-hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-tertiary);
+  font-family: var(--font-family-mono);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.footer-count {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-tertiary);
+  font-family: var(--font-family-mono);
+}
+
+/* Scrollbar Styling */
+.command-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.command-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.command-list::-webkit-scrollbar-thumb {
+  background: var(--color-border-primary);
+  border-radius: var(--border-radius-full);
+}
+
+.command-list::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-focus);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .command-palette-overlay {
+    padding: var(--spacing-4);
+    padding-top: 5vh;
+  }
+
+  .command-palette {
+    max-height: 80vh;
+    border-radius: var(--border-radius-md);
+  }
+
+  .command-item {
+    padding: var(--spacing-4) var(--spacing-3);
+  }
+
+  .command-meta {
+    display: none;
+  }
+
+  .footer-navigation {
+    display: none;
+  }
+
+  .help-shortcuts {
+    gap: var(--spacing-2);
+  }
+
+  .help-shortcut {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-1);
+  }
+}
+
+/* High Contrast Mode */
+.theme-high-contrast .command-palette {
+  border-width: 2px;
+}
+
+.theme-high-contrast .command-item.selected {
+  border-left-width: 4px;
+}
+
+.theme-high-contrast .command-keybinding,
+.theme-high-contrast .help-key {
+  border-width: 2px;
+}
+
+/* Focus States */
+.command-palette:focus-within .search-input {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Pitch Dark Theme Specific */
+.theme-pitch-dark .command-palette-overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.theme-pitch-dark .command-palette {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
