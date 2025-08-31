@@ -1,0 +1,99 @@
+.ide-main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  overflow: hidden;
+}
+
+.tab-bar {
+  display: flex;
+  align-items: flex-end;
+  background-color: #2d2d30;
+  border-bottom: 1px solid #383838;
+  height: 35px;
+  overflow-x: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  background-color: #2d2d30;
+  border-right: 1px solid #383838;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #969696;
+  transition: all 0.2s;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.tab.active {
+  background-color: #1e1e1e;
+  color: #cccccc;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.tab:hover:not(.active) {
+  background-color: #383838;
+  color: #cccccc;
+}
+
+.tab-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab-close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+}
+
+.tab-close:hover {
+  background-color: #454545;
+}
+
+.editor-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor {
+  width: 100%;
+  height: 100%;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: auto;
+}
+
+.editor-content {
+  margin: 0;
+  padding: 16px;
+  white-space: pre-wrap;
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}

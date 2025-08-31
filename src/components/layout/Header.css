@@ -1,0 +1,77 @@
+.ide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  background-color: #2d2d30;
+  border-bottom: 1px solid #383838;
+  padding: 0 8px;
+  user-select: none;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #cccccc;
+  margin-left: 8px;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-bar {
+  display: flex;
+  gap: 16px;
+}
+
+.menu-item {
+  padding: 4px 8px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+  background-color: #383838;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.window-controls {
+  display: flex;
+}
+
+.control-btn {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.control-btn:hover {
+  background-color: #383838;
+}
+
+.control-btn.close:hover {
+  background-color: #e74c3c;
+  color: white;
+}

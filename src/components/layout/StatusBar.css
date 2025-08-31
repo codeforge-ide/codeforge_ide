@@ -1,0 +1,37 @@
+.ide-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 22px;
+  background-color: #007acc;
+  color: white;
+  font-size: 12px;
+  padding: 0 12px;
+  user-select: none;
+}
+
+.status-left,
+.status-center,
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+}
+
+.status-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,138 @@
+.ide-sidebar {
+  display: flex;
+  width: 300px;
+  background-color: #252526;
+  border-right: 1px solid #383838;
+  overflow: hidden;
+}
+
+.sidebar-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 48px;
+  background-color: #2d2d30;
+  border-right: 1px solid #383838;
+  padding: 8px 0;
+}
+
+.sidebar-tab {
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: none;
+  color: #969696;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s;
+  margin-bottom: 4px;
+}
+
+.sidebar-tab:hover {
+  background-color: #383838;
+  color: #cccccc;
+}
+
+.sidebar-tab.active {
+  background-color: #007acc;
+  color: white;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: #2d2d30;
+  border-bottom: 1px solid #383838;
+  min-height: 35px;
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #cccccc;
+  letter-spacing: 0.5px;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.panel-actions button {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  color: #969696;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.panel-actions button:hover {
+  background-color: #383838;
+  color: #cccccc;
+}
+
+.file-tree {
+  flex: 1;
+  padding: 8px 0;
+  overflow-y: auto;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.file-item:hover {
+  background-color: #2a2d2e;
+}
+
+.search-input-container {
+  padding: 8px 12px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 6px 8px;
+  background-color: #3c3c3c;
+  border: 1px solid #464647;
+  border-radius: 3px;
+  color: #cccccc;
+  font-size: 13px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007acc;
+}
+
+.git-content,
+.extensions-content {
+  padding: 16px 12px;
+  text-align: center;
+  color: #969696;
+  font-size: 13px;
+}
